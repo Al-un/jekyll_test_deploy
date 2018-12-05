@@ -6,8 +6,7 @@ cache:
     - vendor/bundle
 
 install:
-  - gem install jekyll
-  - ls
+  - bundle install
 
 script:
   - jekyll build
