@@ -7,10 +7,11 @@ cache:
 
 install:
   - gem install jekyll
+  - ls
 
 script:
   - jekyll build
-  - list .site
+  - ls .site
 
 notifications:
   email: false
