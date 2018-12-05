@@ -5,12 +5,27 @@ cache:
   directories:
     - vendor/bundle
 
+env:
+  secure: 'qTtKsIaTNrl1U8v6JkNuXWdj6UbKpBkw1Pa0xIdqs/OGaRM5YzO3ZGp4JfSmLFceUjY/6bVSd/v+GX0RXgsmhIM4a0lNSujUybNmBqchRDJkMCku2P8xDprlDI7B7Y4PfYrPzEdhHCLvZizAnv09gK0a6sQnRFr9UOXtpZ62GwYyPMUtEkbsA7SRIjlLHTEwoYQwi7e9Fz4ak24CDDEjUJ9ia1e0nIDF/5UgTyEPSwm2ZuXlHcBlS2jtBpp8vZb/e+geTLLpduK8fa5vcakWj5CeUyPPsYi5XAwnFods71JAaalTwkDqubjeiCS5qVnSz+gZQgrXlkPA/ecuADdjwCQug/p2H6Gza/MPQ4GgEmjHEGRkvZlKNkWpBvGhCt01OMeq2pvf4MqVj9PviDs6zoCA6PaslWwphJwVlR8n9+TmillHQVyMyBlGSqzPZsSi9EDrA3mqr37RgSwgvHcPJPdUBTH9Unsi5qwbaVgNgsBOVBKpVNfgMs54B2I/Ft7p1HOVUX+CHMFT3BopOUcilVlaa8++i3hq1FQtT1G4z0bOln0A2Y0gXiICj9Nr2lfNY8YT8ScUhaW8p2822YYBNC5hwfBh/CPqUltZYPFu3djdoaNh0c90Kd6KgchdCdAo6G0FxPV4irBcIEMaXYZDS3Rqm+sBvgJ+FxYrGj1ydPI='
+
 install:
-  - bundle install
+  - bundle install --path vendor/bundle
 
 script:
   - jekyll build
   - ls
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: _site
+  keep-history: true
+  verbose: true
+  on:
+    branch: master
+  # default values
+  target-branch: gh-pages
 
 notifications:
   email: false
