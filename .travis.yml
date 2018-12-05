@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 2.5.1
+cache:
+  directories:
+    - vendor/bundle
+
+install:
+  - gem install jekyll
+
+script:
+  - jekyll build
+  - list .site
+
+notifications:
+  email: false
